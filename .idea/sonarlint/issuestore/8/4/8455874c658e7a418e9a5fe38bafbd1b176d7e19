@@ -1,0 +1,22 @@
+
+f
+java:S1192<"KDefine a constant instead of duplicating this literal "NeuchÃ¢tel" 4 times.(ÿ³ÛÅşÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(æıê…
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ä”Ùûÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(Ä”Ùûÿÿÿÿ
+Q	java:S1257"<This block of commented-out lines of code should be removed.(õ¢†å
+S	java:S106^"9Replace this use of System.out or System.err by a logger.(Ä”Ùûÿÿÿÿ
+N	java:S106a"9Replace this use of System.out or System.err by a logger.(³£…º
+B
+java:S1602e",Remove useless curly braces around statement(êËƒç
+S	java:S106f"9Replace this use of System.out or System.err by a logger.(Ğƒİüúÿÿÿÿ
+S	java:S106h"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+N	java:S106k"9Replace this use of System.out or System.err by a logger.(˜Şßã
+S	java:S106r"9Replace this use of System.out or System.err by a logger.(ô¿ øÿÿÿÿ
+S	java:S106u"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(Í¿êó
+O	java:S106‚"9Replace this use of System.out or System.err by a logger.(Åî”©
+Z
+java:S1155†">Use isEmpty() to check whether the collection is empty or not.(­Üÿÿÿÿÿ
+O	java:S106‡"9Replace this use of System.out or System.err by a logger.(½Ş—
+T	java:S106"9Replace this use of System.out or System.err by a logger.(åö¡½úÿÿÿÿ
