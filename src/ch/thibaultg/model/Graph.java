@@ -60,6 +60,17 @@ public class Graph {
         node.deleteExitingEdge(edgeName);
     }
 
+    public void calculateDegreeForEachNode() {
+        for (Node node : this.nodeList.values()) {
+            node.setDegreeOut(node.getExitingEdges().size());
+            for (Edge exitingEdge : node.getExitingEdges()) {
+                var destination = exitingEdge.getDestination();
+
+                destination.setDegreeIn(destination.getDegreeIn() + 1);
+            }
+        }
+    }
+
     public void dijkstra(Node startNode) {
         System.out.println("RUNNING DIJKSTRA...\n");
 
@@ -95,6 +106,43 @@ public class Graph {
                 }
             }
         }
+    }
+
+    private AbstractSequentialList<Node> shortestPath(Node startNode, Node destinationNode) throws Exception {
+        if (startNode.getVPCC().isEmpty()) {
+            this.dijkstra(startNode);
+        }
+
+        if (null == destinationNode) {
+            throw new Exception("Pas de chemin car la destination est null");
+        }
+
+        if (!startNode.nodeExistInVpcc(destinationNode)) {
+            throw new Exception(String.format("Aucun chemin possible entre %s et %s", startNode.getName(), destinationNode.getName()));
+        }
+
+        var path = new LinkedList<Node>();
+
+        while (destinationNode != null) {
+            path.addFirst(destinationNode);
+            destinationNode = destinationNode.getDijkstraPredecessor();
+        }
+
+        return path;
+    }
+
+    public void printShortestWay(Node startNode, Node destinationNode) throws Exception {
+        var path = this.shortestPath(startNode, destinationNode);
+
+        var eol = System.getProperty("line.separator");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Path cost is ").append(destinationNode.getDijkstraWeight()).append(eol);
+        sb.append("Step ares: ").append(eol);
+        for (Node step : path) {
+            sb.append("    ").append(step.getName());
+        }
+        sb.append(eol);
+        System.out.println(sb.toString());
     }
 
     public List<Node> widthWay(Node startNode) {

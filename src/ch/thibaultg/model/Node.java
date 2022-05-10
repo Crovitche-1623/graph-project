@@ -3,13 +3,15 @@ package ch.thibaultg.model;
 import java.util.*;
 
 public class Node {
-    private String name;
-    private Map<String, Edge> exitingEdgeList = new HashMap<>();
+    private final String name;
+    private final Map<String, Edge> exitingEdgeList = new HashMap<>();
     private boolean mark;
     private int level;
+    private int degreeIn = 0;
+    private int degreeOut = 0;
 
     // Vecteur pour le plus court chemin
-    private Map<String, DijkstraTriplet> vpcc = new HashMap<>();
+    private final Map<String, DijkstraTriplet> vpcc = new HashMap<>();
 
     private int dijkstraWeight = Integer.MAX_VALUE;
     private Node dijkstraPredecessor = null;
@@ -105,7 +107,35 @@ public class Node {
         this.dijkstraPredecessor = dijkstraPredecessor;
     }
 
+    public Map<String, DijkstraTriplet> getVPCC() {
+        return this.vpcc;
+    }
+
+    public boolean nodeExistInVpcc(Node node) {
+        return null != this.vpcc.get(node.getName());
+    }
+
     public void addToVPCC(DijkstraTriplet triplet) {
         this.vpcc.putIfAbsent(triplet.getName(), triplet);
+    }
+
+    public int getDegreeIn() {
+        return this.degreeIn;
+    }
+
+    public int getDegreeOut () {
+        return this.degreeOut;
+    }
+
+    public int getDegree() {
+        return this.getDegreeIn() + getDegreeOut();
+    }
+
+    public void setDegreeIn(int degree) {
+        this.degreeIn = degree;
+    }
+
+    public void setDegreeOut(int degreeOut) {
+        this.degreeOut = degreeOut;
     }
 }

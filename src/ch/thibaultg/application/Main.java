@@ -155,7 +155,12 @@ public class Main {
         g.addExitingEdge("u9", 4, f);
         h.addExitingEdge("u12", 2, a);
         h.addExitingEdge("u13", 9, g);
-        graph.dijkstra(a);
+        // graph.dijkstra(a);
+        try {
+            graph.printShortestWay(a, e);
+        } catch (Exception e1) {
+            System.out.println(e1.getMessage());
+        }
     }
 
     public static void printPath(List<Node> path) {
